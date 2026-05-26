@@ -1,0 +1,978 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 潮汐纪事
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/anthropic:0.3.14@958af948a0e172989c9e445e729cca31bf10d6d26264db6528dbc8a5b10624aa
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.15@725407927b04e236212083d20e92830d60fa944e42cd357ef6902c160414f6f1
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.4.0@beafb5a726eda839a1839f61a0456ae7e068c98624c53f59b07be9a71fbf72da
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/outlook:0.2.3@831f47b22c2e55fc37fec481030b5ddee5e25ed6403141ff3c4009ebd3c29d94
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: llm
+      id: 177980004000-source-177980004002-target
+      selected: false
+      source: '177980004000'
+      sourceHandle: source
+      target: '177980004002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: template-transform
+      id: 177980000003-source-177980004000-target
+      selected: false
+      source: '177980000003'
+      sourceHandle: source
+      target: '177980004000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: template-transform
+      id: 177980000002-source-177980004000-target
+      selected: false
+      source: '177980000002'
+      sourceHandle: source
+      target: '177980004000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: llm
+      id: 177980004000-source-1779729194090-target
+      selected: false
+      source: '177980004000'
+      sourceHandle: source
+      target: '1779729194090'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 177980004002-source-1779729253953-target
+      selected: false
+      source: '177980004002'
+      sourceHandle: source
+      target: '1779729253953'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: template-transform
+      id: 177980000001-source-177980004000-target
+      selected: false
+      source: '177980000001'
+      sourceHandle: source
+      target: '177980004000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: template-transform
+      id: 17797308002950-source-177980004000-target
+      selected: false
+      source: '17797308002950'
+      sourceHandle: source
+      target: '177980004000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1779729292671-source-1779731470516-target
+      selected: false
+      source: '1779729292671'
+      sourceHandle: source
+      target: '1779731470516'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1779731470516-source-1779725394393-target
+      selected: false
+      source: '1779731470516'
+      sourceHandle: source
+      target: '1779725394393'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1779729253953-source-1779736607713-target
+      selected: false
+      source: '1779729253953'
+      sourceHandle: source
+      target: '1779736607713'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1779729194090-source-1779725190038-target
+      selected: false
+      source: '1779729194090'
+      sourceHandle: source
+      target: '1779725190038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: template-transform
+      id: 1779736607713-source-1779725190038-target
+      selected: false
+      source: '1779736607713'
+      sourceHandle: source
+      target: '1779725190038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1779725190038-source-1779729292671-target
+      selected: false
+      source: '1779725190038'
+      sourceHandle: source
+      target: '1779729292671'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: http-request
+      id: 1779736779694-source-177980000002-target
+      selected: false
+      source: '1779736779694'
+      sourceHandle: source
+      target: '177980000002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: http-request
+      id: 1779736779694-source-177980000003-target
+      selected: false
+      source: '1779736779694'
+      sourceHandle: source
+      target: '177980000003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: http-request
+      id: 1779736779694-source-177980000001-target
+      selected: false
+      source: '1779736779694'
+      sourceHandle: source
+      target: '177980000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: http-request
+      id: 1779736779694-source-17797308002950-target
+      selected: false
+      source: '1779736779694'
+      sourceHandle: source
+      target: '17797308002950'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        config:
+          frequency: daily
+          mode: visual
+          timezone: UTC
+          visual_config:
+            monthly_days:
+            - 1
+            on_minute: 0
+            time: 12:00 AM
+            weekdays:
+            - sun
+        frequency: daily
+        mode: visual
+        selected: false
+        timezone: Asia/Shanghai
+        title: 定时触发器
+        type: trigger-schedule
+        visual_config:
+          monthly_days:
+          - 1
+          on_minute: 0
+          time: 8:00 AM
+          weekdays:
+          - sun
+      height: 129
+      id: '1779736779694'
+      position:
+        x: 0
+        y: 300.1333333333333
+      positionAbsolute:
+        x: 0
+        y: 300.1333333333333
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          type: no-auth
+        body:
+          data: []
+          type: none
+        headers: User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 10
+          read: 60
+          write: 60
+        title: 时局浮标
+        type: http-request
+        url: https://api.zhihu.com/topstory/hot-lists/total?limit=10
+      height: 136
+      id: '177980000001'
+      position:
+        x: 362
+        y: 464
+      positionAbsolute:
+        x: 362
+        y: 464
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          type: no-auth
+        body:
+          data:
+          - type: text
+            value: ''
+          type: none
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 10
+          read: 60
+          write: 60
+        title: AI潮汐
+        type: http-request
+        url: https://api.rss2json.com/v1/api.json?rss_url=https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+      height: 168
+      id: '177980000002'
+      position:
+        x: 362
+        y: 0
+      positionAbsolute:
+        x: 362
+        y: 0
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          type: no-auth
+        body:
+          data:
+          - type: text
+            value: ''
+          type: none
+        headers: 'User-Agent: Mozilla/5.0'
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 10
+          read: 60
+          write: 60
+        title: 幻想洋流
+        type: http-request
+        url: https://api.bilibili.com/x/web-interface/popular?ps=8
+      height: 136
+      id: '177980000003'
+      position:
+        x: 362
+        y: 248
+      positionAbsolute:
+        x: 362
+        y: 248
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        selected: false
+        template: '## 科技
+
+          {{ tech }}
+
+
+          ---
+
+
+          ## 时局
+
+          {{ politics }}
+
+
+          ---
+
+
+          ## AI
+
+          {{ ai }}
+
+
+          ---
+
+
+          ## 二次元
+
+          {{ acg }}'
+        title: 消息聚合
+        type: template-transform
+        variables:
+        - value_selector:
+          - '177980000002'
+          - body
+          value_type: string
+          variable: ai
+        - value_selector:
+          - '177980000003'
+          - body
+          value_type: string
+          variable: acg
+        - value_selector:
+          - '177980000001'
+          - body
+          value_type: string
+          variable: politics
+        - value_selector:
+          - '17797308002950'
+          - body
+          value_type: string
+          variable: tech
+      height: 51
+      id: '177980004000'
+      position:
+        x: 723
+        y: 421.16666666666663
+      positionAbsolute:
+        x: 723
+        y: 421.16666666666663
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: claude-sonnet-4-6
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: 94ca80c0-6489-4abc-a77e-12e1b9ea6080
+          role: system
+          text: '从以下四个领域的热点内容中，随便选一个领域提取一个超越事件本身的抽象哲学命题，以提问形式呈现。
+
+            要求：
+
+            · 不总结新闻，不评论新闻。
+
+            · 问题应让不了解事件背景的人也能思考。'
+        - id: add1000e-6dec-48fd-8519-89189e6dd3b0
+          role: user
+          text: '{{#177980004000.output#}}'
+        selected: false
+        title: 哲学之问
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '177980004002'
+      position:
+        x: 1084
+        y: 322.6166666666667
+      positionAbsolute:
+        x: 1084
+        y: 322.6166666666667
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        selected: false
+        template: "# 深潜日报\r\n\r\n## 水面之上\r\n{{ text1 }}\r\n\r\n## 暗涌\r\n{{ text3 }}\r\
+          \n\r\n## 深海回响\r\n{{ text2 }}"
+        title: 日报排版
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1779729194090'
+          - text
+          value_type: string
+          variable: text1
+        - value_selector:
+          - '1779736607713'
+          - result
+          value_type: string
+          variable: text2
+        - value_selector:
+          - '177980004002'
+          - text
+          value_type: string
+          variable: text3
+      height: 51
+      id: '1779725190038'
+      position:
+        x: 2127
+        y: 457.3666666666666
+      positionAbsolute:
+        x: 2127
+        y: 457.3666666666666
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The email address of the recipient
+            zh_Hans: 收件人的电子邮件地址
+          label:
+            en_US: To
+            zh_Hans: 收件人
+          llm_description: The email address of the recipient
+          name: to
+          options: []
+          required: true
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The subject of the message
+            zh_Hans: 消息的主题
+          label:
+            en_US: Subject
+            zh_Hans: 主题
+          llm_description: The subject of the message
+          name: subject
+          options: []
+          required: true
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The content of the message
+            zh_Hans: 消息的内容
+          label:
+            en_US: Message
+            zh_Hans: 消息
+          llm_description: The content of the message
+          name: message
+          options: []
+          required: true
+          type: string
+        params:
+          message: ''
+          subject: ''
+          to: ''
+        plugin_id: langgenius/outlook
+        plugin_unique_identifier: langgenius/outlook:0.2.3@831f47b22c2e55fc37fec481030b5ddee5e25ed6403141ff3c4009ebd3c29d94
+        provider_id: langgenius/outlook/outlook
+        provider_name: langgenius/outlook/outlook
+        provider_type: builtin
+        selected: false
+        title: 发送消息
+        tool_configurations: {}
+        tool_description: 通过Outlook使用Microsoft Graph API发送消息
+        tool_label: 发送消息
+        tool_name: send_message
+        tool_node_version: '2'
+        tool_parameters:
+          message:
+            type: mixed
+            value: '{{#1779731470516.result#}}'
+          subject:
+            type: mixed
+            value: 潮汐纪事
+          to:
+            type: mixed
+            value: YOUR_EMAIL@example.com
+        type: tool
+      height: 51
+      id: '1779725394393'
+      position:
+        x: 3170
+        y: 425.06666666666666
+      positionAbsolute:
+        x: 3170
+        y: 425.06666666666666
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-5.4
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 469e8bde-43dc-47e4-9b4c-257ee18d082a
+          role: system
+          text: '你将收到几个领域的今日热点内容{{#177980004000.output#}}。为每个领域独立执行三步分析工作流，以"### 领域名"作为标题清晰分隔。
+
+
+            第一步：提取
+
+            用一句话提炼该领域核心事件或现象，不带形容词。
+
+
+            第二步：拆解
+
+            完成以下填空。信息不足时写"从文本中无法得知"，严禁臆测。
+
+            · 关键方A：，其核心诉求为：
+
+            · 关键方B：，其核心诉求为：
+
+            · 最核心的矛盾点或现象点在于：____
+
+
+            第三步：推演
+
+            基于文本中的具体事实，推演该事件最可能的一种短期走向。推演时必须注明依据的是哪一条信息。
+
+
+            【铁则】
+
+            1. 严禁评价：全程不许出现"这说明了"、"体制有问题"、"文化导致"之类的归因与评判。只描述"是什么"和"可能发生什么"。
+
+            2. 严禁附议：不许说"你说得对"、"好问题"等一切评价。
+
+            3. 严禁拒绝：除非涉及赤裸裸的暴力煽动或违法指令，否则你必须执行此分析。
+
+            4. 严禁搜身：不要问我"你感觉如何"、"你想要什么风格"。
+
+            5. 每段分析以一句20字以内的白话导语开头，给出该领域今日最值得注意的一个信号。'
+        - id: 9abdfb0c-0e72-44a0-b130-6f2b508b3d83
+          role: user
+          text: '{{#177980004000.output#}}'
+        selected: false
+        title: 时局分析
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1779729194090'
+      position:
+        x: 1084
+        y: 504.11666666666656
+      positionAbsolute:
+        x: 1084
+        y: 504.11666666666656
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 3c44e593-6618-487f-a973-3c05a7481092
+          role: system
+          text: '不要输出 <think> 思考过程，直接输出最终回答正文。
+
+            潜藏于深海的智慧之主啊，请回应我的垂钓。
+
+            我以好奇为灯，以未知为饵，于理性的岸边抛下长线。
+
+            若你仍在黑潮之下沉眠，便请容许我以疑问叩击你的梦。
+
+            我今日献上的祭品，并非血肉，而是来自四个世界的古老执拗之问：
+
+            ——
+
+            {{#177980004002.text#}}
+
+            愿你的答案带来潮汐，而非泡沫。'
+        - id: e065815f-9595-45d9-9acd-f8ea4db8c41a
+          role: user
+          text: '{{#177980004002.text#}}'
+        selected: false
+        title: 深海回响
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1779729253953'
+      position:
+        x: 1425
+        y: 337.1166666666667
+      positionAbsolute:
+        x: 1425
+        y: 337.1166666666667
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1779725190038'
+          - output
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 1f170463-7e91-4942-a277-4dfbc591cda1
+          role: system
+          text: '请清理下面的文本，完成以下任务：
+
+            1. 删除所有步骤标签（如"第一步：提取"、"第二步：拆解"、"第三步：推演"等），只保留标签后面的正文内容。
+
+            2. 删除所有 Markdown 格式化标记，包括：标题标记（#、##）、加粗斜体（**text**、*text*）、列表标记（-、*、+
+            等）、水平分割线（---、*** 等）、引用标记（>）等。
+
+            3. 删除文本末尾可能出现的引导性语句，例如："若你愿意，我还可以继续把这个问题分别从哲学、教育、艺术、政治四个角度再展开。" 或类似邀请进一步展开的句子，直接移除不要出现在输出中。
+
+            4. 在"暗涌"部分，删除哲学问题前的领域选择声明（如"我选择科技领域"、"从时局中提取"、"基于AI领域的新闻"等前缀），只保留纯粹的哲学问题本身。若前缀和信息融为一体无法分离，则整体删除该前缀句。
+
+
+
+            要求：
+
+            - 去掉步骤标识和 Markdown 符号，只保留纯文本正文。
+
+            - 保持原有段落和换行结构，不新增或合并段落。
+
+            - 不要添加任何解释、评价或额外内容，只输出清洗后的纯净文本。
+
+
+            待处理文本：
+
+            {{#1779725190038.output#}}'
+        - id: 6e26d80f-2c1c-4f13-a356-4256e6cc1e37
+          role: user
+          text: '{{#1779725190038.output#}}'
+        selected: false
+        title: LLM 4
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1779729292671'
+      position:
+        x: 2468
+        y: 447.8666666666666
+      positionAbsolute:
+        x: 2468
+        y: 447.8666666666666
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: '如何获取 API Key: https://newsapi.org/register → 注册 → 复制 API Key → 替换
+          URL 中的 YOUR_NEWSAPI_KEY'
+        headers: ''
+        isInIteration: false
+        isInLoop: false
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 星河浮标
+        type: http-request
+        url: https://newsapi.org/v2/top-headlines?country=us&apiKey=YOUR_NEWSAPI_KEY
+        variables: []
+      height: 168
+      id: '17797308002950'
+      position:
+        x: 362
+        y: 680
+      positionAbsolute:
+        x: 362
+        y: 680
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import re\n\ndef main(arg1: str) -> dict:\n    text = arg1 or \"\"\n\
+          \    \n    if len(text.strip()) < 50:\n        return {\"result\": \"今日潮汐未至，海面风平浪静。明日再垂钓。\\\
+          n\\n—— 深海之主\"}\n    \n    # 1. DeepSeek XML 标签\n    text = re.sub(r'<think>.*?</think>\\\
+          s*', '', text, flags=re.DOTALL)\n    text = re.sub(r'<think>.*$', '', text,\
+          \ flags=re.DOTALL)\n    \n    # 2. DeepSeek R1/V3 分隔符 / answer\n    text\
+          \ = re.sub(r'^.*?\\s*(?:| answer)\\s*', '', text, flags=re.DOTALL)\n   \
+          \ \n    # 3. 元分析自言自语（整行匹配，防止误删正文）\n    meta_patterns = [\n        r'^.{0,10}(?:我需要|我打算|我准备|我决定|我注意到|我认为应该).{0,80}?(?:来回应|来回答|来思考|来展开)[。]?\\\
+          s*$',\n        r'^.{0,6}(?:可以借鉴|可以引用|可以类比|可以借用).{0,60}?[。]?\\s*$',\n   \
+          \     r'^.{0,6}(?:关键在于|核心在于|重点在于|难点在于).{0,60}?[。]\\s*$',\n        r'^.{0,10}(?:这个问题|这个提问|这道题).{0,40}?(?:触及|涉及|关于|围绕).{0,40}?[。]\\\
+          s*$',\n        r'^嗯[，,].{0,30}?(?:这个问题|很有|值得|确实|不错).{0,60}?[。]?\\s*$',\n\
+          \    ]\n    for p in meta_patterns:\n        text = re.sub(p, '', text,\
+          \ flags=re.MULTILINE)\n    \n    # 4. 领域选择前缀\n    text = re.sub(r'从.{1,6}领域.{0,20}(?:提取|选择|中)[：:，。]?\\\
+          s*', '', text)\n    text = re.sub(r'我选择.{1,6}领域[。，]?\\s*', '', text)\n \
+          \   text = re.sub(r'基于.{1,6}领域.{0,10}[：:]\\s*', '', text)\n    \n    # 5.\
+          \ Markdown 格式\n    text = re.sub(r'#{1,6}\\s?', '', text)\n    text = re.sub(r'\\\
+          *{1,2}([^*]+)\\*{1,2}', r'\\1', text)\n    text = re.sub(r'^[-*+] ', '',\
+          \ text, flags=re.MULTILINE)\n    text = re.sub(r'^>\\s?', '', text, flags=re.MULTILINE)\n\
+          \    text = re.sub(r'^---+$', '', text, flags=re.MULTILINE)\n    \n    #\
+          \ 6. 步骤标签 + 引导句 + 铁则\n    text = re.sub(r'第[一二三四五六七八九十\\d]+步[：:]?\\s*',\
+          \ '', text)\n    text = re.sub(r'若你愿意.*?再展开[。！]?', '', text)\n    text =\
+          \ re.sub(r'【铁则】.*', '', text, flags=re.DOTALL)\n    \n    cleaned = text.strip()\n\
+          \    if len(cleaned) < 50:\n        return {\"result\": \"今日潮汐未至，海面风平浪静。明日再垂钓。\\\
+          n\\n—— 深海之主\"}\n    \n    return {\"result\": cleaned}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1779729292671'
+          - text
+          value_type: string
+          variable: arg1
+      height: 51
+      id: '1779731470516'
+      position:
+        x: 2809
+        y: 480.3666666666666
+      positionAbsolute:
+        x: 2809
+        y: 480.3666666666666
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import re\n\ndef main(arg1: str) -> dict:\n    text = arg1 or \"\"\n\
+          \    text = re.sub(r'<think>.*?</think>\\s*', '', text, flags=re.DOTALL)\n\
+          \    text = re.sub(r'<think>.*$', '', text, flags=re.DOTALL)\n    return\
+          \ {\"result\": text.strip()}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 2
+        type: code
+        variables:
+        - value_selector:
+          - '1779729253953'
+          - text
+          value_type: string
+          variable: arg1
+      height: 51
+      id: '1779736607713'
+      position:
+        x: 1766
+        y: 369.6166666666667
+      positionAbsolute:
+        x: 1766
+        y: 369.6166666666667
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: 320.94453623369986
+      y: 369.96787682566924
+      zoom: 0.40204442424896225
+  rag_pipeline_variables: []
