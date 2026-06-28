@@ -1,165 +1,204 @@
-# 🌊 Tidal Chronicle
-“Each dawn, lines are cast into the digital deep. What rises to the surface — froth, current, or the glint of an unknown truth — is shaped into a message in a bottle, and sent to your shore.” — The Lord of the Abyss
-What is this?
-An automated daily briefing engine, sleeping in Dify.
-It fishes signals from four distinct waters, distills them through rational analysis, philosophical condensation, and an abyssal echo, then delivers a clean, opinion‑free newsletter to your inbox.
+# Tidal Chronicle · 潮汐纪事
 
-Fishing spots
+> *Each dawn, lines are cast into the digital deep. What rises — froth, current, or the glint of an unknown truth — is shaped into a message in a bottle, and sent to your shore.*
+>
+> 每日破晓，向数字深海垂下钓线。浮标震颤的，是浪涌，是暗流，还是深海中无名真理的微光？封入瓶中，托潮汐送至你的岸上。
 
-Buoy	Waters	Bait
-时局浮标	Zhihu hot list	Sociopolitical pulses
-AI 潮汐	The Verge AI RSS (via rss2json)	Human‑machine ripples
-幻想洋流	Bilibili popular videos	ACG emotional currents
-星河浮标	NewsAPI US headlines	Surface signals of tech & world
-NewsAPI key (星河浮标)
+An automated daily briefing engine on Dify. Four data streams → triple distillation → a clean newsletter in your inbox.
 
-Sign up at newsapi.org
+---
 
-Replace YOUR_NEWSAPI_KEY in the node’s URL with your actual key
+## What is this
 
-The free tier is for personal vessels only — no commercial harbours.
+A Dify workflow that wakes at 08:00 daily, fishes signals from four waters, distills them through three layers — **rational analysis → philosophical condensation → abyssal echo** — and delivers a judgement-free briefing to your email.
 
-Distillation pipeline (see ASCII flow above — identical logic)
+---
 
-What you need
+## Pipeline
 
-Dify 0.6.0+
+```
+Daily 08:00 (Asia/Shanghai)
+    │
+    ├─ 时局浮标 (Zhihu) ────┐
+    ├─ AI 潮汐  (Verge AI) ─┤
+    ├─ 幻想洋流 (Bilibili) ─┤  Four hooks drop
+    └─ 星河浮标 (NewsAPI)  ─┘  simultaneously
+              │
+              ▼
+         Aggregation
+              │
+       ┌──────┴──────┐
+       ▼              ▼
+  Philosophical       Analysis
+  Question (Claude)   (GPT-5.4)
+  One abstract        Extract → dissect
+  question pulled     → project.
+  from the surface.   Facts only.
+       │              │
+       ▼              │
+  Abyssal Echo         │
+  (DeepSeek)            │
+  Poetic answer         │
+  from the deep.        │
+       │              │
+       ▼              │
+  Strip <think>        │
+  (Python)             │
+       │              │
+       └──────┬───────┘
+              ▼
+           Layout
+  Above Surface / Undercurrent
+        / Abyssal Echo
+              │
+              ▼
+       LLM Polish (GPT-4o-mini)
+    Remove step labels & markdown
+              │
+              ▼
+       Deep Clean (Python)
+    Crush residual <think> & self-talk
+    < 50 chars → "The tide is calm today."
+              │
+              ▼
+    📧 Bottle delivered (Outlook)
+```
 
-Model access: Anthropic, OpenAI, DeepSeek
+---
 
-Outlook authorization
+## Data Sources
 
-NewsAPI key
+| Buoy | Waters | Bait |
+|------|--------|------|
+| 时局浮标 | Zhihu hot list | Sociopolitical pulses |
+| AI 潮汐 | The Verge AI (rss2json) | Human-machine ripples |
+| 幻想洋流 | Bilibili popular videos | ACG emotional currents |
+| 星河浮标 | NewsAPI US headlines | Tech & world surface signals |
 
-Getting started
+星河浮标 requires a [NewsAPI](https://newsapi.org) key (free for personal use).
 
-Import 潮汐纪事.yml into Dify.
+---
 
-Set the NewsAPI key in the 星河浮标 node.
+## Setup
 
-Select available models in all LLM nodes.
+1. **Import** `潮汐纪事.yml` into Dify (workflow mode, 0.6.0+)
+2. **Set key** — replace `YOUR_NEWSAPI_KEY` in the 星河浮标 node URL
+3. **Pick models** — select available models in LLM nodes (Anthropic / OpenAI / DeepSeek)
+4. **Bind email** — Outlook authorization in the send node → replace recipient address
+5. **(Optional)** Adjust schedule trigger (default 08:00)
+6. **Test** — manually trigger once to verify the bottle arrives
 
-Authorize Outlook and replace the recipient email.
+---
 
-(Optional) Adjust the schedule trigger.
+## Three Sections
 
-Run a manual test to see the bottled message arrive.
+| Section | Meaning |
+|---------|---------|
+| 水面之上 (Above Surface) | Today's observable signals |
+| 暗涌 (Undercurrent) | The philosophical question distilled from the noise |
+| 深海回响 (Abyssal Echo) | The poetic answer from the deep |
 
-Whispers
+If the final text is too short, only a quiet note from the abyss remains. That is not a bug — the ocean chose silence today.
 
-水面之上 (Above the surface) — observable signals
+---
 
-暗涌 (Undercurrent) — the philosophical question pulled from the deep
+## Dependencies
 
-深海回响 (Abyssal Echo) — the poetic answer from the Lord
+Dify 0.6.0+ · Anthropic · OpenAI · DeepSeek · Outlook · NewsAPI
 
-If the final text is too short, only a quiet note from the abyss remains. That is not a bug. It is the ocean choosing silence today.
-🌊 Tidal Chronicle · 潮汐纪事
-“每日破晓，我向数字深海垂下钓线。
-浮标震颤的，是浪涌，是暗流，还是深海中无名真理的微光？
-我将它们封入瓶中，托潮汐送至你的岸上。”
-——深海之主
+---
 
-📜 这是什么？
-一座沉睡在 Dify 上的自动化日志引擎。
-每天清晨，它从四个不同的海洋垂钓热点，打捞起今日的信息碎片，再经三重蒸馏——理性拆解、哲学凝练、深海回响——最终炼成一份无喧哗、无评判的纯净日报，作为漂流瓶投入你的邮箱。
+## 这是什么
 
-🧭 垂钓点（数据源）
-浮标名称	海域	饵料
-时局浮标	知乎热榜	社会与政经的短时脉冲
-AI 潮汐	The Verge AI 专栏 (经 rss2json 转化)	人机交汇的最新涟漪
-幻想洋流	B 站热门视频	二次元的情绪对流
-星河浮标	NewsAPI 美国头条	科技与世界的表层信号
-星河浮标密钥获取
-该浮标需要一把“航海许可证”：
+一座 Dify 自动化日志引擎。每天 08:00 从四个海域打捞今日信号，经三重蒸馏——**理性拆解 → 哲学凝练 → 深海回响**——炼成无评判纯净日报投递到邮箱。
 
-前往 newsapi.org 注册免费账户
+---
 
-获得 API Key 后，在 星河浮标 节点的 URL 中将 YOUR_NEWSAPI_KEY 替换为真实密钥
+## 流程
 
-免费版仅供个人航船使用，不可驶入商业港口
+```
+每日 08:00
+    │
+    ├─ 时局浮标 (知乎)    ──┐
+    ├─ AI 潮汐  (Verge)    ─┤
+    ├─ 幻想洋流 (B 站)     ─┤  四线同时下钩
+    └─ 星河浮标 (NewsAPI)  ─┘
+              │
+              ▼
+          消息聚合
+              │
+       ┌──────┴──────┐
+       ▼              ▼
+  哲学之问          时局分析
+  (Claude)          (GPT-5.4)
+  提炼一个抽象      提取→拆解→推演
+  哲学命题          纯事实无评判
+       │              │
+       ▼              │
+  深海回响             │
+  (DeepSeek)           │
+  诗意回应哲学之问      │
+       │              │
+       ▼              │
+  去除 <think>         │
+  (Python)            │
+       │              │
+       └──────┬───────┘
+              ▼
+         日报排版
+   水面之上 / 暗涌 / 深海回响
+              │
+              ▼
+      LLM 净化 (GPT-4o-mini)
+   扫去步骤标签与 Markdown 引导语
+              │
+              ▼
+       代码深度清洗 (Python)
+   碾碎残留 <think> 与自我对话
+   净文 < 50 字符 → "今日潮汐未至"
+              │
+              ▼
+    📧 漂流瓶投递 (Outlook)
+```
 
-⚙️ 炼金流程
-text
-每日破晓 (08:00 亚洲/上海)
-   │
-   ├── 时局浮标  ──┐
-   ├── AI 潮汐   ──┤
-   ├── 幻想洋流  ──┤ 四线同时下钩
-   └── 星河浮标  ──┘
-         │
-         ▼
-    消息聚合 (将四股洋流汇入同一片水域)
-         │
-         ├─────────────────────────────┐
-         │                             │
-         ▼                             ▼
-   哲学之问 (Claude)            时局分析 (GPT‑5.4)
-   从浪尖摘取一个抽象              每个领域三步蒸馏：
-   的哲学命题，只问不答。          提取 → 拆解 → 推演
-         │                     (纯事实，无评判)
-         ▼                             │
-   深海回响 (DeepSeek)                 │
-   “潜藏于深海的智慧之主啊，           │
-   请回应我的垂钓…”                    │
-         │                             │
-         ▼                             │
-   去除思考气泡 (Python)               │
-   <think> 的泡沫不留                   │
-         │                             │
-         └─────────┬───────────────────┘
-                   ▼
-              日报排版
-      水面之上 / 暗涌 / 深海回响
-                   │
-                   ▼
-            LLM 净化 (GPT‑4o‑mini)
-       扫去步骤标签、Markdown 与引导语
-                   │
-                   ▼
-            代码深度清洗 (Python)
-     再碾碎残留的 <think>、领域自述、
-     自我对话 —— 直至只剩纯净正文。
-     若净文短如泡沫 (<50 字符)，
-     则置入瓶中信：
-     “今日潮汐未至，海面风平浪静。
-      明日再垂钓。—— 深海之主”
-                   │
-                   ▼
-           📧 漂流瓶投递 (Outlook)
-🧰 启航所需
-Dify 0.6.0 以上（此航图以 workflow 模式绘制）
+---
 
-模型许可：Anthropic (Claude)、OpenAI (GPT‑5.4, GPT‑4o‑mini)、DeepSeek
+## 数据源
 
-Outlook 授权：在工具节点中连接微软帐号，瓶子才能寄出
+| 浮标 | 海域 | 饵料 |
+|------|------|------|
+| 时局浮标 | 知乎热榜 | 社会 & 政经脉冲 |
+| AI 潮汐 | The Verge AI (rss2json) | 人机交汇涟漪 |
+| 幻想洋流 | B 站热门视频 | ACG 情绪对流 |
+| 星河浮标 | NewsAPI 美国头条 | 科技 & 世界表层信号 |
 
-NewsAPI 密钥（见上文星河浮标说明）
+星河浮标需 [NewsAPI](https://newsapi.org) 密钥（免费版仅供个人使用）。
 
-📦 部署步骤
-导入航图：将 潮汐纪事.yml 导入 Dify。
+---
 
-校准浮标：
+## 部署
 
-星河浮标：填入你的 NewsAPI 密钥。
+1. **导入** `潮汐纪事.yml` → Dify（workflow 模式，需 0.6.0+）
+2. **填钥** — 星河浮标节点 URL 中替换 `YOUR_NEWSAPI_KEY`
+3. **选模** — LLM 节点指定可用模型（Anthropic / OpenAI / DeepSeek）
+4. **绑箱** — Outlook 授权 → 替换收件人地址
+5. **（可选）** 调定时触发器（默认 08:00）
+6. **试钓** — 手动触发一次确认抵达
 
-其余公共浮标无需密钥，已预设 User-Agent。
+---
 
-选定模型：在各 LLM 节点中选择你可用的模型（名称可灵活替换）。
+## 三版块
 
-绑定信箱：打开 发送消息 节点，完成 Outlook 授权，并将收件人替换为你的真实邮箱。
+| 版块 | 释义 |
+|------|------|
+| 水面之上 | 当日可观测的现实信号 |
+| 暗涌 | 从信号中提炼的哲学之问 |
+| 深海回响 | 以诗意回应的未知之答 |
 
-调整潮时（可选）：默认每日 08:00 起锚，可在 定时触发器 中修改。
+若净文过短仅剩一句深海告示——那不是故障，是海洋今日选择了沉默。
 
-试钓：点击触发器上的“运行”按钮手动测试，查看瓶中内容是否抵达。
+---
 
-🌫 一些暗语
-日报的三个版块：
+## 依赖
 
-水面之上 —— 当日可观测的现实信号
-
-暗涌 —— 从信号中提炼的哲学之问
-
-深海回响 —— 以诗意回应的未知之答
-
-若最终净文过短，邮件将只剩一句深海告示，那不是故障，是这片海洋今日选择了沉默。
+Dify 0.6.0+ · Anthropic · OpenAI · DeepSeek · Outlook · NewsAPI
