@@ -1,4 +1,8 @@
-# 潮汐纪事
+# Tidal Chronicle · 潮汐纪事
+
+> *Each dawn, lines are cast into the digital deep. What rises — froth, current, or the glint of an unknown truth — is shaped into a message in a bottle, and sent to your shore.*
+>
+> 每日破晓，向数字深海垂下钓线。浮标震颤的，是浪涌，是暗流，还是深海中无名真理的微光？封入瓶中，托潮汐送至你的岸上。
 
 每日 AI 新闻简报，每天早 8:00 自动抓取四个领域热点 → AI 分析 → 生成日报 → 发送邮件。
 
