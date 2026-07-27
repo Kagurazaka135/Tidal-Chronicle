@@ -1,204 +1,93 @@
-# Tidal Chronicle · 潮汐纪事
+# 潮汐纪事
 
-> *Each dawn, lines are cast into the digital deep. What rises — froth, current, or the glint of an unknown truth — is shaped into a message in a bottle, and sent to your shore.*
->
-> 每日破晓，向数字深海垂下钓线。浮标震颤的，是浪涌，是暗流，还是深海中无名真理的微光？封入瓶中，托潮汐送至你的岸上。
+每日 AI 新闻简报，每天早 8:00 自动抓取四个领域热点 → AI 分析 → 生成日报 → 发送邮件。
 
-An automated daily briefing engine on Dify. Four data streams → triple distillation → a clean newsletter in your inbox.
-
----
-
-## What is this
-
-A Dify workflow that wakes at 08:00 daily, fishes signals from four waters, distills them through three layers — **rational analysis → philosophical condensation → abyssal echo** — and delivers a judgement-free briefing to your email.
-
----
-
-## Pipeline
+## 工作流概览
 
 ```
-Daily 08:00 (Asia/Shanghai)
+定时触发器 (8:00 AM)
     │
-    ├─ 时局浮标 (Zhihu) ────┐
-    ├─ AI 潮汐  (Verge AI) ─┤
-    ├─ 幻想洋流 (Bilibili) ─┤  Four hooks drop
-    └─ 星河浮标 (NewsAPI)  ─┘  simultaneously
+    ├── 时局浮标 (知乎热榜)
+    ├── AI潮汐 (The Verge RSS)
+    ├── 幻想洋流 (B站热门)
+    ├── 星河浮标 (NewsAPI)
+    └── 风色观测 (彩云天气)
+           │
+     消息聚合 (模板拼接)
+           │
+     ┌─────┼─────┬──────────┐
+     │     │     │          │
+  哲学之问 时局分析 天象浮标   潮汐索引
+  (Sonnet) (GPT5.4)(GPT mini)(GPT mini)
+     │     │     │          │
+     │     │     └────┬─────┘
+     │     │          │
+     └──┬──┘    日报排版 (模板拼接)
+        │          │
+     深海回响   LLM清洗 (GPT mini)
+     (DS V4)      │
+        │     代码清洗 (Python)
+        └─────┬──┘
               │
-              ▼
-         Aggregation
-              │
-       ┌──────┴──────┐
-       ▼              ▼
-  Philosophical       Analysis
-  Question (Claude)   (GPT-5.4)
-  One abstract        Extract → dissect
-  question pulled     → project.
-  from the surface.   Facts only.
-       │              │
-       ▼              │
-  Abyssal Echo         │
-  (DeepSeek)            │
-  Poetic answer         │
-  from the deep.        │
-       │              │
-       ▼              │
-  Strip <think>        │
-  (Python)             │
-       │              │
-       └──────┬───────┘
-              ▼
-           Layout
-  Above Surface / Undercurrent
-        / Abyssal Echo
-              │
-              ▼
-       LLM Polish (GPT-4o-mini)
-    Remove step labels & markdown
-              │
-              ▼
-       Deep Clean (Python)
-    Crush residual <think> & self-talk
-    < 50 chars → "The tide is calm today."
-              │
-              ▼
-    📧 Bottle delivered (Outlook)
+          发送邮件 (Outlook ×3)
 ```
 
----
+## 板块说明
 
-## Data Sources
+| 板块 | 说明 | 模型 |
+|---|---|---|
+| 潮汐索引 | 目录导航，各板块一句话摘要 | GPT-4o-mini |
+| 天象浮标 | 天气 + 出门注意事项 | GPT-4o-mini |
+| 水面之上 | 四领域新闻深度分析（提取→拆解→推演） | GPT-5.4 |
+| 暗涌 | 从新闻中提炼一个抽象哲学命题 | Claude Sonnet 4.6 |
+| 深海回响 | 以海洋神话口吻回答哲学命题 | DeepSeek V4 Pro |
 
-| Buoy | Waters | Bait |
-|------|--------|------|
-| 时局浮标 | Zhihu hot list | Sociopolitical pulses |
-| AI 潮汐 | The Verge AI (rss2json) | Human-machine ripples |
-| 幻想洋流 | Bilibili popular videos | ACG emotional currents |
-| 星河浮标 | NewsAPI US headlines | Tech & world surface signals |
+## 需要准备的东西
 
-星河浮标 requires a [NewsAPI](https://newsapi.org) key (free for personal use).
+### 1. Dify 平台
 
----
+导入 `.yml` 文件到 Dify Workflow。
 
-## Setup
+### 2. API 密钥
 
-1. **Import** `潮汐纪事.yml` into Dify (workflow mode, 0.6.0+)
-2. **Set key** — replace `YOUR_NEWSAPI_KEY` in the 星河浮标 node URL
-3. **Pick models** — select available models in LLM nodes (Anthropic / OpenAI / DeepSeek)
-4. **Bind email** — Outlook authorization in the send node → replace recipient address
-5. **(Optional)** Adjust schedule trigger (default 08:00)
-6. **Test** — manually trigger once to verify the bottle arrives
+| 服务 | 节点 | 获取方式 |
+|---|---|---|
+| 彩云天气 | 风色观测 | https://dashboard.caiyunapp.com 免费注册 |
+| NewsAPI | 星河浮标 | https://newsapi.org/register 免费注册 |
+| Anthropic | 哲学之问 | Dify 市场安装 Anthropic 插件，填 API Key |
+| OpenAI | 时局分析/天象浮标/潮汐索引/清洗 | Dify 市场安装 OpenAI 插件，填 API Key |
+| DeepSeek | 深海回响 | Dify 市场安装 DeepSeek 插件，填 API Key |
+| Outlook | 发送邮件 (×3) | Dify 市场安装 Outlook 插件，授权登录 |
 
----
+### 3. 配置修改
 
-## Three Sections
+导入后需要改这些地方：
 
-| Section | Meaning |
-|---------|---------|
-| 水面之上 (Above Surface) | Today's observable signals |
-| 暗涌 (Undercurrent) | The philosophical question distilled from the noise |
-| 深海回响 (Abyssal Echo) | The poetic answer from the deep |
+- **风色观测** → URL 里的 `你的彩云天气API密钥` 换成真的
+- **星河浮标** → URL 里的 `你的NewsAPI密钥` 换成真的
+- **发送消息 / 不正经人 / 鲲鲲酱** → `收件人` 换成实际邮箱
+- 天气坐标默认成都 (104.0671, 30.4098)，要换城市去彩云天气改
 
-If the final text is too short, only a quiet note from the abyss remains. That is not a bug — the ocean chose silence today.
+### 4. 定时触发器
 
----
+默认每天早上 8:00 (Asia/Shanghai) 执行，可在 Dify 节点里改频率和时间。
 
-## Dependencies
+## 所需模型
 
-Dify 0.6.0+ · Anthropic · OpenAI · DeepSeek · Outlook · NewsAPI
+| 模型 | 用途 | 可替代 |
+|---|---|---|
+| claude-sonnet-4-6 | 哲学之问 | 任意推理能力强的模型 |
+| gpt-5.4 | 时局分析 | gpt-4o / claude-sonnet |
+| deepseek-v4-pro | 深海回响 | claude-sonnet / gpt-5.4 |
+| gpt-4o-mini | 天象浮标 / 潮汐索引 / 清洗 | 任意便宜模型 |
 
----
+## 新闻源
 
-## 这是什么
+| 来源 | 内容 |
+|---|---|
+| 知乎热榜 API | 科技/时局热点 |
+| The Verge AI RSS | AI 行业新闻 |
+| B站热门 API | 二次元/娱乐热点 |
+| NewsAPI (美国头条) | 科技新闻补充 |
 
-一座 Dify 自动化日志引擎。每天 08:00 从四个海域打捞今日信号，经三重蒸馏——**理性拆解 → 哲学凝练 → 深海回响**——炼成无评判纯净日报投递到邮箱。
-
----
-
-## 流程
-
-```
-每日 08:00
-    │
-    ├─ 时局浮标 (知乎)    ──┐
-    ├─ AI 潮汐  (Verge)    ─┤
-    ├─ 幻想洋流 (B 站)     ─┤  四线同时下钩
-    └─ 星河浮标 (NewsAPI)  ─┘
-              │
-              ▼
-          消息聚合
-              │
-       ┌──────┴──────┐
-       ▼              ▼
-  哲学之问          时局分析
-  (Claude)          (GPT-5.4)
-  提炼一个抽象      提取→拆解→推演
-  哲学命题          纯事实无评判
-       │              │
-       ▼              │
-  深海回响             │
-  (DeepSeek)           │
-  诗意回应哲学之问      │
-       │              │
-       ▼              │
-  去除 <think>         │
-  (Python)            │
-       │              │
-       └──────┬───────┘
-              ▼
-         日报排版
-   水面之上 / 暗涌 / 深海回响
-              │
-              ▼
-      LLM 净化 (GPT-4o-mini)
-   扫去步骤标签与 Markdown 引导语
-              │
-              ▼
-       代码深度清洗 (Python)
-   碾碎残留 <think> 与自我对话
-   净文 < 50 字符 → "今日潮汐未至"
-              │
-              ▼
-    📧 漂流瓶投递 (Outlook)
-```
-
----
-
-## 数据源
-
-| 浮标 | 海域 | 饵料 |
-|------|------|------|
-| 时局浮标 | 知乎热榜 | 社会 & 政经脉冲 |
-| AI 潮汐 | The Verge AI (rss2json) | 人机交汇涟漪 |
-| 幻想洋流 | B 站热门视频 | ACG 情绪对流 |
-| 星河浮标 | NewsAPI 美国头条 | 科技 & 世界表层信号 |
-
-星河浮标需 [NewsAPI](https://newsapi.org) 密钥（免费版仅供个人使用）。
-
----
-
-## 部署
-
-1. **导入** `潮汐纪事.yml` → Dify（workflow 模式，需 0.6.0+）
-2. **填钥** — 星河浮标节点 URL 中替换 `YOUR_NEWSAPI_KEY`
-3. **选模** — LLM 节点指定可用模型（Anthropic / OpenAI / DeepSeek）
-4. **绑箱** — Outlook 授权 → 替换收件人地址
-5. **（可选）** 调定时触发器（默认 08:00）
-6. **试钓** — 手动触发一次确认抵达
-
----
-
-## 三版块
-
-| 版块 | 释义 |
-|------|------|
-| 水面之上 | 当日可观测的现实信号 |
-| 暗涌 | 从信号中提炼的哲学之问 |
-| 深海回响 | 以诗意回应的未知之答 |
-
-若净文过短仅剩一句深海告示——那不是故障，是海洋今日选择了沉默。
-
----
-
-## 依赖
-
-Dify 0.6.0+ · Anthropic · OpenAI · DeepSeek · Outlook · NewsAPI
+知乎和 B站 API 不需要密钥，直接用。

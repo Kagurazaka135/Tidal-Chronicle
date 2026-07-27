@@ -4,28 +4,28 @@ app:
   icon_background: '#FFEAD5'
   icon_type: emoji
   mode: workflow
-  name: 潮汐纪事
+  name: 潮汐纪事2
   use_icon_as_answer_icon: false
 dependencies:
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/anthropic:0.3.14@958af948a0e172989c9e445e729cca31bf10d6d26264db6528dbc8a5b10624aa
+    marketplace_plugin_unique_identifier: langgenius/anthropic:0.3.25@d16aaa50a9fc344466d386c58b71168515e68f428fbd541677ea1e357b6a3e38
     version: null
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.15@725407927b04e236212083d20e92830d60fa944e42cd357ef6902c160414f6f1
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.19@5b68617c637b62d31e7f33a9f5677b76e88f81868fb04a728e208588564b72ea
     version: null
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/openai:0.4.0@beafb5a726eda839a1839f61a0456ae7e068c98624c53f59b07be9a71fbf72da
+    marketplace_plugin_unique_identifier: langgenius/openai:1.0.1@b513bf843af4619450bdc15f32e995f90ebdeee143b1cccef442a867099b3397
     version: null
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/outlook:0.2.3@831f47b22c2e55fc37fec481030b5ddee5e25ed6403141ff3c4009ebd3c29d94
+    marketplace_plugin_unique_identifier: langgenius/outlook:0.2.6@89b112361f0b78c65da5feb33bca02052b478b21c98eeab787a8663bf1742ffa
     version: null
 kind: app
 version: 0.6.0
@@ -173,8 +173,111 @@ workflow:
         isInLoop: false
         sourceType: llm
         targetType: code
-      id: 1779729292671-source-1779731470516-target
+      id: 1779729253953-source-1779736607713-target
       selected: false
+      source: '1779729253953'
+      sourceHandle: source
+      target: '1779736607713'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1785178972954-source-1785179037595-target
+      source: '1785178972954'
+      sourceHandle: source
+      target: '1785179037595'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1785179037595-source-1785179089204-target
+      source: '1785179037595'
+      sourceHandle: source
+      target: '1785179089204'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1785179089204-source-1779725190038-target
+      source: '1785179089204'
+      sourceHandle: source
+      target: '1779725190038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: template-transform
+      id: 1779736607713-source-1779725190038-target
+      source: '1779736607713'
+      sourceHandle: source
+      target: '1779725190038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1779729194090-source-1785179297533-target
+      source: '1779729194090'
+      sourceHandle: source
+      target: '1785179297533'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1785179297533-source-1779725190038-target
+      source: '1785179297533'
+      sourceHandle: source
+      target: '1779725190038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1779725190038-source-1779729292671-target
+      source: '1779725190038'
+      sourceHandle: source
+      target: '1779729292671'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1779729292671-source-1785179544761-target
+      source: '1779729292671'
+      sourceHandle: source
+      target: '1785179544761'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1779729292671-source-1779731470516-target
       source: '1779729292671'
       sourceHandle: source
       target: '1779731470516'
@@ -186,7 +289,6 @@ workflow:
         sourceType: code
         targetType: tool
       id: 1779731470516-source-1779725394393-target
-      selected: false
       source: '1779731470516'
       sourceHandle: source
       target: '1779725394393'
@@ -194,51 +296,24 @@ workflow:
       type: custom
       zIndex: 0
     - data:
-        isInIteration: false
         isInLoop: false
-        sourceType: llm
-        targetType: code
-      id: 1779729253953-source-1779736607713-target
-      selected: false
-      source: '1779729253953'
+        sourceType: code
+        targetType: tool
+      id: 1779731470516-source-17797328028050-target
+      source: '1779731470516'
       sourceHandle: source
-      target: '1779736607713'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: llm
-        targetType: template-transform
-      id: 1779729194090-source-1779725190038-target
-      selected: false
-      source: '1779729194090'
-      sourceHandle: source
-      target: '1779725190038'
+      target: '17797328028050'
       targetHandle: target
       type: custom
       zIndex: 0
     - data:
         isInLoop: false
         sourceType: code
-        targetType: template-transform
-      id: 1779736607713-source-1779725190038-target
-      selected: false
-      source: '1779736607713'
+        targetType: tool
+      id: 1779731470516-source-1779777244015-target
+      source: '1779731470516'
       sourceHandle: source
-      target: '1779725190038'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: template-transform
-        targetType: llm
-      id: 1779725190038-source-1779729292671-target
-      selected: false
-      source: '1779725190038'
-      sourceHandle: source
-      target: '1779729292671'
+      target: '1779777244015'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -247,9 +322,8 @@ workflow:
         isInLoop: false
         sourceType: trigger-schedule
         targetType: http-request
-      id: 1779736779694-source-177980000002-target
-      selected: false
-      source: '1779736779694'
+      id: 1785180025838-source-177980000002-target
+      source: '1785180025838'
       sourceHandle: source
       target: '177980000002'
       targetHandle: target
@@ -260,9 +334,8 @@ workflow:
         isInLoop: false
         sourceType: trigger-schedule
         targetType: http-request
-      id: 1779736779694-source-177980000003-target
-      selected: false
-      source: '1779736779694'
+      id: 1785180025838-source-177980000003-target
+      source: '1785180025838'
       sourceHandle: source
       target: '177980000003'
       targetHandle: target
@@ -273,9 +346,8 @@ workflow:
         isInLoop: false
         sourceType: trigger-schedule
         targetType: http-request
-      id: 1779736779694-source-177980000001-target
-      selected: false
-      source: '1779736779694'
+      id: 1785180025838-source-177980000001-target
+      source: '1785180025838'
       sourceHandle: source
       target: '177980000001'
       targetHandle: target
@@ -286,53 +358,26 @@ workflow:
         isInLoop: false
         sourceType: trigger-schedule
         targetType: http-request
-      id: 1779736779694-source-17797308002950-target
-      selected: false
-      source: '1779736779694'
+      id: 1785180025838-source-17797308002950-target
+      source: '1785180025838'
       sourceHandle: source
       target: '17797308002950'
       targetHandle: target
       type: custom
       zIndex: 0
-    nodes:
     - data:
-        config:
-          frequency: daily
-          mode: visual
-          timezone: UTC
-          visual_config:
-            monthly_days:
-            - 1
-            on_minute: 0
-            time: 12:00 AM
-            weekdays:
-            - sun
-        frequency: daily
-        mode: visual
-        selected: false
-        timezone: Asia/Shanghai
-        title: 定时触发器
-        type: trigger-schedule
-        visual_config:
-          monthly_days:
-          - 1
-          on_minute: 0
-          time: 8:00 AM
-          weekdays:
-          - sun
-      height: 129
-      id: '1779736779694'
-      position:
-        x: 0
-        y: 300.1333333333333
-      positionAbsolute:
-        x: 0
-        y: 300.1333333333333
-      selected: true
-      sourcePosition: right
-      targetPosition: left
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: http-request
+      id: 1785180025838-source-1785178972954-target
+      source: '1785180025838'
+      sourceHandle: source
+      target: '1785178972954'
+      targetHandle: target
       type: custom
-      width: 242
+      zIndex: 0
+    nodes:
     - data:
         authorization:
           type: no-auth
@@ -363,7 +408,7 @@ workflow:
       positionAbsolute:
         x: 362
         y: 464
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -400,7 +445,7 @@ workflow:
       positionAbsolute:
         x: 362
         y: 0
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -437,7 +482,7 @@ workflow:
       positionAbsolute:
         x: 362
         y: 248
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -502,7 +547,7 @@ workflow:
       positionAbsolute:
         x: 723
         y: 421.16666666666663
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -543,15 +588,16 @@ workflow:
       positionAbsolute:
         x: 1084
         y: 322.6166666666667
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 241
     - data:
         selected: false
-        template: "# 深潜日报\r\n\r\n## 水面之上\r\n{{ text1 }}\r\n\r\n## 暗涌\r\n{{ text3 }}\r\
-          \n\r\n## 深海回响\r\n{{ text2 }}"
+        template: "# 深潜日报\r\n\r\n##潮汐索引\r\n{{ text4 }}\r\n\r\n##天象浮标\r\n{{ text5 }}\r\
+          \n\r\n## 水面之上\r\n{{ text1 }}\r\n\r\n## 暗涌\r\n{{ text3 }}\r\n\r\n## 深海回响\r\
+          \n{{ text2 }}"
         title: 日报排版
         type: template-transform
         variables:
@@ -570,6 +616,16 @@ workflow:
           - text
           value_type: string
           variable: text3
+        - value_selector:
+          - '1785179297533'
+          - text
+          value_type: string
+          variable: text4
+        - value_selector:
+          - '1785179089204'
+          - text
+          value_type: string
+          variable: text5
       height: 51
       id: '1779725190038'
       position:
@@ -578,7 +634,7 @@ workflow:
       positionAbsolute:
         x: 2127
         y: 457.3666666666666
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -653,7 +709,7 @@ workflow:
             value: 潮汐纪事
           to:
             type: mixed
-            value: YOUR_EMAIL@example.com
+            value: 你的邮箱@example.com
         type: tool
       height: 51
       id: '1779725394393'
@@ -663,7 +719,7 @@ workflow:
       positionAbsolute:
         x: 3170
         y: 425.06666666666666
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -687,8 +743,11 @@ workflow:
             第一步：提取
 
             详细的介绍一下该领域的新闻，不带立场。
+
             用一句话提炼该领域几个事件或现象，不带形容词。
+
             如果一个分类中混合了其他分类的新闻，直接将他无视，只分析符合分类的新闻
+
             严禁提及某一个分类出现了别的种类新闻
 
             第二步：拆解
@@ -734,7 +793,7 @@ workflow:
       positionAbsolute:
         x: 1084
         y: 504.11666666666656
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -783,7 +842,7 @@ workflow:
       positionAbsolute:
         x: 1425
         y: 337.1166666666667
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -844,7 +903,7 @@ workflow:
       positionAbsolute:
         x: 2468
         y: 447.8666666666666
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -856,8 +915,7 @@ workflow:
         body:
           data: []
           type: none
-        desc: '如何获取 API Key: https://newsapi.org/register → 注册 → 复制 API Key → 替换
-          URL 中的 YOUR_NEWSAPI_KEY'
+        desc: ''
         headers: ''
         isInIteration: false
         isInLoop: false
@@ -873,9 +931,9 @@ workflow:
           max_connect_timeout: 0
           max_read_timeout: 0
           max_write_timeout: 0
-        title: 星河浮标
+        title: 星河浮标 (1)
         type: http-request
-        url: https://newsapi.org/v2/top-headlines?country=us&apiKey=YOUR_NEWSAPI_KEY
+        url: https://newsapi.org/v2/top-headlines?country=us&apiKey=你的NewsAPI密钥
         variables: []
       height: 168
       id: '17797308002950'
@@ -885,7 +943,7 @@ workflow:
       positionAbsolute:
         x: 362
         y: 680
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -936,7 +994,95 @@ workflow:
       positionAbsolute:
         x: 2809
         y: 480.3666666666666
-      selected: true
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The email address of the recipient
+            zh_Hans: 收件人的电子邮件地址
+          label:
+            en_US: To
+            zh_Hans: 收件人
+          llm_description: The email address of the recipient
+          name: to
+          options: []
+          required: true
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The subject of the message
+            zh_Hans: 消息的主题
+          label:
+            en_US: Subject
+            zh_Hans: 主题
+          llm_description: The subject of the message
+          name: subject
+          options: []
+          required: true
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The content of the message
+            zh_Hans: 消息的内容
+          label:
+            en_US: Message
+            zh_Hans: 消息
+          llm_description: The content of the message
+          name: message
+          options: []
+          required: true
+          type: string
+        params:
+          message: ''
+          subject: ''
+          to: ''
+        plugin_id: langgenius/outlook
+        plugin_unique_identifier: langgenius/outlook:0.2.3@831f47b22c2e55fc37fec481030b5ddee5e25ed6403141ff3c4009ebd3c29d94
+        provider_id: langgenius/outlook/outlook
+        provider_name: langgenius/outlook/outlook
+        provider_type: builtin
+        selected: false
+        title: 不正经人
+        tool_configurations: {}
+        tool_description: 通过Outlook使用Microsoft Graph API发送消息
+        tool_label: 发送消息
+        tool_name: send_message
+        tool_node_version: '2'
+        tool_parameters:
+          message:
+            type: mixed
+            value: '{{#1779731470516.result#}}'
+          subject:
+            type: mixed
+            value: 潮汐纪事
+          to:
+            type: mixed
+            value: 你的邮箱@example.com
+        type: tool
+      height: 51
+      id: '17797328028050'
+      position:
+        x: 3170
+        y: 524.8877113167471
+      positionAbsolute:
+        x: 3170
+        y: 524.8877113167471
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -968,13 +1114,332 @@ workflow:
       positionAbsolute:
         x: 1766
         y: 369.6166666666667
-      selected: true
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The email address of the recipient
+            ja_JP: 宛先の電子メールアドレス
+            pt_BR: O endereço de e-mail do destinatário
+            zh_Hans: 收件人的电子邮件地址
+          label:
+            en_US: To
+            ja_JP: 宛先
+            pt_BR: Para
+            zh_Hans: 收件人
+          llm_description: The email address of the recipient
+          max: null
+          min: null
+          name: to
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The subject of the message
+            ja_JP: 件名
+            pt_BR: O assunto da mensagem
+            zh_Hans: 消息的主题
+          label:
+            en_US: Subject
+            ja_JP: 件名
+            pt_BR: Assunto
+            zh_Hans: 主题
+          llm_description: The subject of the message
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The content of the message
+            ja_JP: メッセージの内容
+            pt_BR: O conteúdo da mensagem
+            zh_Hans: 消息的内容
+          label:
+            en_US: Message
+            ja_JP: メッセージ
+            pt_BR: Mensagem
+            zh_Hans: 消息
+          llm_description: The content of the message
+          max: null
+          min: null
+          name: message
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          message: ''
+          subject: ''
+          to: ''
+        plugin_id: langgenius/outlook
+        plugin_unique_identifier: langgenius/outlook:0.2.3@831f47b22c2e55fc37fec481030b5ddee5e25ed6403141ff3c4009ebd3c29d94
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8abf66a7-b032-48dc-ba9a-6a73758c3da2&filename=26afac8c4c554272513e82c43abe8432731afc1ce646c1bf09ca8af45d85aafc.svg
+        provider_id: langgenius/outlook/outlook
+        provider_name: langgenius/outlook/outlook
+        provider_type: builtin
+        selected: false
+        title: 鲲鲲酱
+        tool_configurations: {}
+        tool_description: 通过Outlook使用Microsoft Graph API发送消息
+        tool_label: 发送消息
+        tool_name: send_message
+        tool_node_version: '2'
+        tool_parameters:
+          message:
+            type: mixed
+            value: '{{#1779731470516.result#}}'
+          subject:
+            type: mixed
+            value: 潮汐纪事
+          to:
+            type: mixed
+            value: 你的邮箱@example.com
+        type: tool
+      height: 51
+      id: '1779777244015'
+      position:
+        x: 3170
+        y: 635.4001819416942
+      positionAbsolute:
+        x: 3170
+        y: 635.4001819416942
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        config:
+          frequency: daily
+          mode: visual
+          timezone: UTC
+          visual_config:
+            monthly_days:
+            - 1
+            on_minute: 0
+            time: 12:00 AM
+            weekdays:
+            - sun
+        frequency: daily
+        mode: visual
+        selected: true
+        timezone: Asia/Shanghai
+        title: 定时触发器
+        type: trigger-schedule
+        visual_config:
+          monthly_days:
+          - 1
+          on_minute: 0
+          time: 8:00 AM
+          weekdays:
+          - sun
+      height: 129
+      id: '1785180025838'
+      position:
+        x: -91.33242743903031
+        y: 301.6166666666667
+      positionAbsolute:
+        x: -91.33242743903031
+        y: 301.6166666666667
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 风色观测
+        type: http-request
+        url: 'https://api.caiyunapp.com/v2.6/你的彩云天气API密钥/104.0671,30.4098/weather?dailysteps=3&hourlysteps=48 '
+        variables: []
+      height: 168
+      id: '1785178972954'
+      position:
+        x: 362
+        y: 887
+      positionAbsolute:
+        x: 362
+        y: 887
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\n\ndef main(arg1: str):\n    try:\n        # 第一步：把那一长串文本变成\
+          \ Python 字典\n        data = json.loads(arg1)\n        \n        # 第二步：按照你发给我的数据结构，一层层往里找\n\
+          \        # 路径是: result -> realtime -> skycon\n        res_data = data.get('result',\
+          \ {})\n        realtime = res_data.get('realtime', {})\n        skycon =\
+          \ realtime.get('skycon', 'DATA_ERROR')\n        \n        # 第三步：输出结果\n \
+          \       return {\n            \"result\": skycon\n        }\n    except\
+          \ Exception as e:\n        return {\n            \"result\": f\"解析失败: {str(e)}\"\
+          \n        }"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 3
+        type: code
+        variables:
+        - value_selector:
+          - '1785178972954'
+          - body
+          value_type: string
+          variable: arg1
+      height: 51
+      id: '1785179037595'
+      position:
+        x: 763.8040329923958
+        y: 887
+      positionAbsolute:
+        x: 763.8040329923958
+        y: 887
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 5d2c49ce-286b-4e42-b81d-ef55f1f9bc2c
+          role: system
+          text: "根据以下天气数据，输出今天出门需要注意的事项。每条一行，最多3条。用最朴实的白话，别搞文艺。\n\n  关心这几件事：\n  -\
+            \ 温差大不大（早晚差>8°C提醒带外套）\n  - 会不会下雨（降水概率>30%提醒带伞）\n  - 紫外线强不强（UV>6提醒防晒）\n\
+            \  - 风大不大（>5级提醒防风）\n  - 湿度高不高（>85%提醒闷热）\n  - 有没有极端天气预警"
+        selected: false
+        title: 天象浮标
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1785179089204'
+      position:
+        x: 1121.809055408658
+        y: 887
+      positionAbsolute:
+        x: 1121.809055408658
+        y: 887
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1779729194090'
+          - text
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: ae4f74f1-3100-4da2-a02e-ceaf7b4d0c19
+          role: system
+          text: "你有几秒钟读完下面这篇日报{{#1779729194090.text#}}，然后在邮件最开头写一行目录导航。\n\n  要求：\n\
+            \  - 每个板块用\"板块名：一句话核心\"格式，用 · 分隔\n  - 一句话控制在15字以内\n  - 不评价，只提取事实或核心命题\n\
+            \  - 整行不超过150字\n\n  日报内容：{{排版输出}}"
+        selected: false
+        title: 潮汐索引
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1785179297533'
+      position:
+        x: 1477.6331614264259
+        y: 504.11666666666656
+      positionAbsolute:
+        x: 1477.6331614264259
+        y: 504.11666666666656
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        outputs:
+        - value_selector:
+          - '1779729292671'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: 输出
+        type: end
+      height: 87
+      id: '1785179544761'
+      position:
+        x: 2777.3132324357052
+        y: 322.6166666666667
+      positionAbsolute:
+        x: 2777.3132324357052
+        y: 322.6166666666667
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 241
     viewport:
-      x: 320.94453623369986
-      y: 369.96787682566924
-      zoom: 0.40204442424896225
+      x: 581.451224276098
+      y: 2.218391553746642
+      zoom: 0.842031069639696
   rag_pipeline_variables: []
