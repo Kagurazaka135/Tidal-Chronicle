@@ -10,17 +10,17 @@ dependencies:
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/anthropic:0.3.25@d16aaa50a9fc344466d386c58b71168515e68f428fbd541677ea1e357b6a3e38
+    marketplace_plugin_unique_identifier: langgenius/anthropic:0.3.35@a43cdd09b41779fc847c9aad91595f88570ebc9547878b14d593f324e5374060
     version: null
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.19@5b68617c637b62d31e7f33a9f5677b76e88f81868fb04a728e208588564b72ea
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.25@32f56796c4f9c3949f2a8cde44a5912f347b5a141dd7daf100048aeefd5e6593
     version: null
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/openai:1.0.1@b513bf843af4619450bdc15f32e995f90ebdeee143b1cccef442a867099b3397
+    marketplace_plugin_unique_identifier: langgenius/openai:1.0.7@f36c3761167b3af0bfb4975b728fe3cd126342d076e1ec5359e6d4f92557d3d4
     version: null
 - current_identifier: null
   type: marketplace
@@ -28,7 +28,7 @@ dependencies:
     marketplace_plugin_unique_identifier: langgenius/outlook:0.2.6@89b112361f0b78c65da5feb33bca02052b478b21c98eeab787a8663bf1742ffa
     version: null
 kind: app
-version: 0.6.0
+version: 0.7.0
 workflow:
   conversation_variables: []
   environment_variables: []
@@ -47,17 +47,6 @@ workflow:
       - local_file
       - remote_url
       enabled: false
-      fileUploadConfig:
-        attachment_image_file_size_limit: 2
-        audio_file_size_limit: 50
-        batch_count_limit: 5
-        file_size_limit: 15
-        file_upload_limit: 50
-        image_file_batch_limit: 10
-        image_file_size_limit: 10
-        single_chunk_attachment_limit: 10
-        video_file_size_limit: 100
-        workflow_file_upload_limit: 10
       image:
         enabled: false
         number_limits: 3
@@ -67,7 +56,7 @@ workflow:
       number_limits: 3
     opening_statement: ''
     retriever_resource:
-      enabled: true
+      enabled: false
     sensitive_word_avoidance:
       enabled: false
     speech_to_text:
@@ -95,24 +84,13 @@ workflow:
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
         sourceType: http-request
         targetType: template-transform
       id: 177980000003-source-177980004000-target
       selected: false
       source: '177980000003'
-      sourceHandle: source
-      target: '177980004000'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: http-request
-        targetType: template-transform
-      id: 177980000002-source-177980004000-target
-      selected: false
-      source: '177980000002'
       sourceHandle: source
       target: '177980004000'
       targetHandle: target
@@ -145,6 +123,7 @@ workflow:
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
         sourceType: http-request
         targetType: template-transform
@@ -157,6 +136,7 @@ workflow:
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
         sourceType: http-request
         targetType: template-transform
@@ -184,43 +164,10 @@ workflow:
     - data:
         isInIteration: false
         isInLoop: false
-        sourceType: http-request
-        targetType: code
-      id: 1785178972954-source-1785179037595-target
-      source: '1785178972954'
-      sourceHandle: source
-      target: '1785179037595'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        isInLoop: false
-        sourceType: code
-        targetType: llm
-      id: 1785179037595-source-1785179089204-target
-      source: '1785179037595'
-      sourceHandle: source
-      target: '1785179089204'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: llm
-        targetType: template-transform
-      id: 1785179089204-source-1779725190038-target
-      source: '1785179089204'
-      sourceHandle: source
-      target: '1779725190038'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
         sourceType: code
         targetType: template-transform
       id: 1779736607713-source-1779725190038-target
+      selected: false
       source: '1779736607713'
       sourceHandle: source
       target: '1779725190038'
@@ -233,6 +180,7 @@ workflow:
         sourceType: llm
         targetType: llm
       id: 1779729194090-source-1785179297533-target
+      selected: false
       source: '1779729194090'
       sourceHandle: source
       target: '1785179297533'
@@ -240,10 +188,12 @@ workflow:
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
         sourceType: llm
         targetType: template-transform
       id: 1785179297533-source-1779725190038-target
+      selected: false
       source: '1785179297533'
       sourceHandle: source
       target: '1779725190038'
@@ -251,10 +201,12 @@ workflow:
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
         sourceType: template-transform
         targetType: llm
       id: 1779725190038-source-1779729292671-target
+      selected: false
       source: '1779725190038'
       sourceHandle: source
       target: '1779729292671'
@@ -267,6 +219,7 @@ workflow:
         sourceType: llm
         targetType: end
       id: 1779729292671-source-1785179544761-target
+      selected: false
       source: '1779729292671'
       sourceHandle: source
       target: '1785179544761'
@@ -274,10 +227,12 @@ workflow:
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
         sourceType: llm
         targetType: code
       id: 1779729292671-source-1779731470516-target
+      selected: false
       source: '1779729292671'
       sourceHandle: source
       target: '1779731470516'
@@ -285,10 +240,12 @@ workflow:
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
         sourceType: code
         targetType: tool
       id: 1779731470516-source-1779725394393-target
+      selected: false
       source: '1779731470516'
       sourceHandle: source
       target: '1779725394393'
@@ -296,22 +253,26 @@ workflow:
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
-        sourceType: code
+        sourceType: tool
         targetType: tool
-      id: 1779731470516-source-17797328028050-target
-      source: '1779731470516'
+      id: 1779725394393-source-17797328028050-target
+      selected: false
+      source: '1779725394393'
       sourceHandle: source
       target: '17797328028050'
       targetHandle: target
       type: custom
       zIndex: 0
     - data:
+        isInIteration: false
         isInLoop: false
-        sourceType: code
+        sourceType: tool
         targetType: tool
-      id: 1779731470516-source-1779777244015-target
-      source: '1779731470516'
+      id: 17797328028050-source-1779777244015-target
+      selected: false
+      source: '17797328028050'
       sourceHandle: source
       target: '1779777244015'
       targetHandle: target
@@ -323,6 +284,7 @@ workflow:
         sourceType: trigger-schedule
         targetType: http-request
       id: 1785180025838-source-177980000002-target
+      selected: false
       source: '1785180025838'
       sourceHandle: source
       target: '177980000002'
@@ -335,6 +297,7 @@ workflow:
         sourceType: trigger-schedule
         targetType: http-request
       id: 1785180025838-source-177980000003-target
+      selected: false
       source: '1785180025838'
       sourceHandle: source
       target: '177980000003'
@@ -347,6 +310,7 @@ workflow:
         sourceType: trigger-schedule
         targetType: http-request
       id: 1785180025838-source-177980000001-target
+      selected: false
       source: '1785180025838'
       sourceHandle: source
       target: '177980000001'
@@ -359,6 +323,7 @@ workflow:
         sourceType: trigger-schedule
         targetType: http-request
       id: 1785180025838-source-17797308002950-target
+      selected: false
       source: '1785180025838'
       sourceHandle: source
       target: '17797308002950'
@@ -368,12 +333,64 @@ workflow:
     - data:
         isInIteration: false
         isInLoop: false
-        sourceType: trigger-schedule
-        targetType: http-request
-      id: 1785180025838-source-1785178972954-target
-      source: '1785180025838'
+        sourceType: tool
+        targetType: tool
+      id: 1779777244015-source-17899264254200-target
+      selected: false
+      source: '1779777244015'
       sourceHandle: source
-      target: '1785178972954'
+      target: '17899264254200'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 17899264254200-source-17899264290900-target
+      selected: false
+      source: '17899264254200'
+      sourceHandle: source
+      target: '17899264290900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 17899264290900-source-17899264318050-target
+      selected: false
+      source: '17899264290900'
+      sourceHandle: source
+      target: '17899264318050'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 177980000002-source-1799999000001-target
+      selected: false
+      source: '177980000002'
+      sourceHandle: source
+      target: '1799999000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: template-transform
+      id: 1799999000001-source-177980004000-target
+      selected: false
+      source: '1799999000001'
+      sourceHandle: source
+      target: '177980004000'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -413,6 +430,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         authorization:
           type: no-auth
@@ -436,7 +454,7 @@ workflow:
           write: 60
         title: AI潮汐
         type: http-request
-        url: https://api.rss2json.com/v1/api.json?rss_url=https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+        url: https://feed2json.org/convert?url=https%3A%2F%2Fwww.theverge.com%2Frss%2Fai-artificial-intelligence%2Findex.xml
       height: 168
       id: '177980000002'
       position:
@@ -450,6 +468,47 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
+    - data:
+        code: "import json\n\n\ndef main(arg1: str) -> dict:\n    try:\n        data\
+          \ = json.loads(arg1 or \"{}\")\n    except Exception:\n        return {\"\
+          result\": \"今日 AI 潮汐未至，信源解析失败。\"}\n\n    items = data.get(\"items\") or\
+          \ []\n    nl = chr(10)\n    lines = []\n    for item in items[:10]:\n  \
+          \      title = (item.get(\"title\") or \"\").strip()\n        if not title:\n\
+          \            continue\n        summary = (item.get(\"summary\") or \"\"\
+          ).strip()\n        if len(summary) > 160:\n            summary = summary[:160].rsplit(\"\
+          \ \", 1)[0] + \"…\"\n        url = item.get(\"url\") or \"\"\n        lines.append(\"\
+          - \" + title + nl + \"  \" + summary + nl + \"  \" + url)\n\n    if not\
+          \ lines:\n        return {\"result\": \"今日 AI 潮汐未至，信源为空。\"}\n    return\
+          \ {\"result\": nl.join(lines)}\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: AI潮汐解析
+        type: code
+        variables:
+        - value_selector:
+          - '177980000002'
+          - body
+          value_type: string
+          variable: arg1
+      height: 51
+      id: '1799999000001'
+      position:
+        x: 723
+        y: 100
+      positionAbsolute:
+        x: 723
+        y: 100
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
     - data:
         authorization:
           type: no-auth
@@ -487,6 +546,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         selected: false
         template: '## 科技
@@ -520,8 +580,8 @@ workflow:
         type: template-transform
         variables:
         - value_selector:
-          - '177980000002'
-          - body
+          - '1799999000001'
+          - result
           value_type: string
           variable: ai
         - value_selector:
@@ -552,15 +612,17 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '177980004000'
+          - output
         model:
-          completion_params:
-            temperature: 0.7
+          completion_params: {}
           mode: chat
-          name: claude-sonnet-4-6
+          name: claude-opus-4-7
           provider: langgenius/anthropic/anthropic
         prompt_template:
         - id: 94ca80c0-6489-4abc-a77e-12e1b9ea6080
@@ -593,11 +655,11 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         selected: false
-        template: "# 深潜日报\r\n\r\n##潮汐索引\r\n{{ text4 }}\r\n\r\n##天象浮标\r\n{{ text5 }}\r\
-          \n\r\n## 水面之上\r\n{{ text1 }}\r\n\r\n## 暗涌\r\n{{ text3 }}\r\n\r\n## 深海回响\r\
-          \n{{ text2 }}"
+        template: "# 深潜日报\r\n\r\n##潮汐索引\r\n{{ text4 }}\r\n\r\n## 水面之上\r\n{{ text1\
+          \ }}\r\n\r\n## 暗涌\r\n{{ text3 }}\r\n\r\n## 深海回响\r\n{{ text2 }}"
         title: 日报排版
         type: template-transform
         variables:
@@ -621,11 +683,6 @@ workflow:
           - text
           value_type: string
           variable: text4
-        - value_selector:
-          - '1785179089204'
-          - text
-          value_type: string
-          variable: text5
       height: 51
       id: '1779725190038'
       position:
@@ -639,6 +696,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         is_team_authorization: true
         paramSchemas:
@@ -724,6 +782,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         context:
           enabled: false
@@ -798,15 +857,17 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         context:
           enabled: false
           variable_selector: []
         model:
           completion_params:
+            reasoning_effort: high
             temperature: 0.7
           mode: chat
-          name: deepseek-v4-pro
+          name: deepseek-v4-flash
           provider: langgenius/deepseek/deepseek
         prompt_template:
         - id: 3c44e593-6618-487f-a973-3c05a7481092
@@ -847,6 +908,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         context:
           enabled: true
@@ -854,22 +916,21 @@ workflow:
           - '1779725190038'
           - output
         model:
-          completion_params:
-            temperature: 0.7
+          completion_params: {}
           mode: chat
-          name: gpt-4o-mini
+          name: gpt-5.4-mini
           provider: langgenius/openai/openai
         prompt_template:
         - id: 1f170463-7e91-4942-a277-4dfbc591cda1
           role: system
           text: '请清理下面的文本，完成以下任务：
 
-            1. 删除所有步骤标签（如"第一步：提取"、"第二步：拆解"、"第三步：推演"等），只保留标签后面的正文内容。
+            1. 删除所有步骤标签（如“第一步：提取”、“第二步：拆解”、“第三步：推演”等），只保留标签后面的正文内容。
 
             2. 删除所有 Markdown 格式化标记，包括：标题标记（#、##）、加粗斜体（**text**、*text*）、列表标记（-、*、+
             等）、水平分割线（---、*** 等）、引用标记（>）等。
 
-            3. 删除文本末尾可能出现的引导性语句，例如："若你愿意，我还可以继续把这个问题分别从哲学、教育、艺术、政治四个角度再展开。" 或类似邀请进一步展开的句子，直接移除不要出现在输出中。
+            3. 删除文本末尾可能出现的引导性语句，例如：“若你愿意，我还可以继续把这个问题分别从哲学、教育、艺术、政治四个角度再展开。” 或类似邀请进一步展开的句子，直接移除不要出现在输出中。
 
             4. 在"暗涌"部分，删除哲学问题前的领域选择声明（如"我选择科技领域"、"从时局中提取"、"基于AI领域的新闻"等前缀），只保留纯粹的哲学问题本身。若前缀和信息融为一体无法分离，则整体删除该前缀句。
 
@@ -908,6 +969,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         authorization:
           config: null
@@ -948,6 +1010,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         code: "import re\n\ndef main(arg1: str) -> dict:\n    text = arg1 or \"\"\n\
           \    \n    if len(text.strip()) < 50:\n        return {\"result\": \"今日潮汐未至，海面风平浪静。明日再垂钓。\\\
@@ -999,6 +1062,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         desc: ''
         isInIteration: false
@@ -1087,6 +1151,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         code: "import re\n\ndef main(arg1: str) -> dict:\n    text = arg1 or \"\"\n\
           \    text = re.sub(r'<think>.*?</think>\\s*', '', text, flags=re.DOTALL)\n\
@@ -1119,6 +1184,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         is_team_authorization: true
         paramSchemas:
@@ -1235,6 +1301,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         config:
           frequency: daily
@@ -1249,7 +1316,7 @@ workflow:
             - sun
         frequency: daily
         mode: visual
-        selected: true
+        selected: false
         timezone: Asia/Shanghai
         title: 定时触发器
         type: trigger-schedule
@@ -1268,117 +1335,12 @@ workflow:
       positionAbsolute:
         x: -91.33242743903031
         y: 301.6166666666667
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 242
-    - data:
-        authorization:
-          config: null
-          type: no-auth
-        body:
-          data: []
-          type: none
-        headers: ''
-        method: get
-        params: ''
-        retry_config:
-          max_retries: 3
-          retry_enabled: true
-          retry_interval: 100
-        selected: false
-        ssl_verify: true
-        timeout:
-          max_connect_timeout: 0
-          max_read_timeout: 0
-          max_write_timeout: 0
-        title: 风色观测
-        type: http-request
-        url: 'https://api.caiyunapp.com/v2.6/你的彩云天气API密钥/104.0671,30.4098/weather?dailysteps=3&hourlysteps=48 '
-        variables: []
-      height: 168
-      id: '1785178972954'
-      position:
-        x: 362
-        y: 887
-      positionAbsolute:
-        x: 362
-        y: 887
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        code: "import json\n\ndef main(arg1: str):\n    try:\n        # 第一步：把那一长串文本变成\
-          \ Python 字典\n        data = json.loads(arg1)\n        \n        # 第二步：按照你发给我的数据结构，一层层往里找\n\
-          \        # 路径是: result -> realtime -> skycon\n        res_data = data.get('result',\
-          \ {})\n        realtime = res_data.get('realtime', {})\n        skycon =\
-          \ realtime.get('skycon', 'DATA_ERROR')\n        \n        # 第三步：输出结果\n \
-          \       return {\n            \"result\": skycon\n        }\n    except\
-          \ Exception as e:\n        return {\n            \"result\": f\"解析失败: {str(e)}\"\
-          \n        }"
-        code_language: python3
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 代码执行 3
-        type: code
-        variables:
-        - value_selector:
-          - '1785178972954'
-          - body
-          value_type: string
-          variable: arg1
-      height: 51
-      id: '1785179037595'
-      position:
-        x: 763.8040329923958
-        y: 887
-      positionAbsolute:
-        x: 763.8040329923958
-        y: 887
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        context:
-          enabled: false
-          variable_selector: []
-        model:
-          completion_params:
-            temperature: 0.7
-          mode: chat
-          name: gpt-4o-mini
-          provider: langgenius/openai/openai
-        prompt_template:
-        - id: 5d2c49ce-286b-4e42-b81d-ef55f1f9bc2c
-          role: system
-          text: "根据以下天气数据，输出今天出门需要注意的事项。每条一行，最多3条。用最朴实的白话，别搞文艺。\n\n  关心这几件事：\n  -\
-            \ 温差大不大（早晚差>8°C提醒带外套）\n  - 会不会下雨（降水概率>30%提醒带伞）\n  - 紫外线强不强（UV>6提醒防晒）\n\
-            \  - 风大不大（>5级提醒防风）\n  - 湿度高不高（>85%提醒闷热）\n  - 有没有极端天气预警"
-        selected: false
-        title: 天象浮标
-        type: llm
-        vision:
-          enabled: false
-      height: 87
-      id: '1785179089204'
-      position:
-        x: 1121.809055408658
-        y: 887
-      positionAbsolute:
-        x: 1121.809055408658
-        y: 887
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
+      zIndex: 0
     - data:
         context:
           enabled: true
@@ -1386,10 +1348,9 @@ workflow:
           - '1779729194090'
           - text
         model:
-          completion_params:
-            temperature: 0.7
+          completion_params: {}
           mode: chat
-          name: gpt-4o-mini
+          name: gpt-5.4-mini
           provider: langgenius/openai/openai
         prompt_template:
         - id: ae4f74f1-3100-4da2-a02e-ceaf7b4d0c19
@@ -1405,16 +1366,17 @@ workflow:
       height: 87
       id: '1785179297533'
       position:
-        x: 1477.6331614264259
-        y: 504.11666666666656
+        x: 1439.6331614264259
+        y: 509.11666666666656
       positionAbsolute:
-        x: 1477.6331614264259
-        y: 504.11666666666656
+        x: 1439.6331614264259
+        y: 509.11666666666656
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
     - data:
         outputs:
         - value_selector:
@@ -1438,8 +1400,369 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+      zIndex: 0
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The email address of the recipient
+            ja_JP: 宛先の電子メールアドレス
+            pt_BR: O endereço de e-mail do destinatário
+            zh_Hans: 收件人的电子邮件地址
+          label:
+            en_US: To
+            ja_JP: 宛先
+            pt_BR: Para
+            zh_Hans: 收件人
+          llm_description: The email address of the recipient
+          max: null
+          min: null
+          name: to
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The subject of the message
+            ja_JP: 件名
+            pt_BR: O assunto da mensagem
+            zh_Hans: 消息的主题
+          label:
+            en_US: Subject
+            ja_JP: 件名
+            pt_BR: Assunto
+            zh_Hans: 主题
+          llm_description: The subject of the message
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The content of the message
+            ja_JP: メッセージの内容
+            pt_BR: O conteúdo da mensagem
+            zh_Hans: 消息的内容
+          label:
+            en_US: Message
+            ja_JP: メッセージ
+            pt_BR: Mensagem
+            zh_Hans: 消息
+          llm_description: The content of the message
+          max: null
+          min: null
+          name: message
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          message: ''
+          subject: ''
+          to: ''
+        plugin_id: langgenius/outlook
+        plugin_unique_identifier: langgenius/outlook:0.2.3@831f47b22c2e55fc37fec481030b5ddee5e25ed6403141ff3c4009ebd3c29d94
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8abf66a7-b032-48dc-ba9a-6a73758c3da2&filename=26afac8c4c554272513e82c43abe8432731afc1ce646c1bf09ca8af45d85aafc.svg
+        provider_id: langgenius/outlook/outlook
+        provider_name: langgenius/outlook/outlook
+        provider_type: builtin
+        selected: false
+        title: 杰哥
+        tool_configurations: {}
+        tool_description: 通过Outlook使用Microsoft Graph API发送消息
+        tool_label: 发送消息
+        tool_name: send_message
+        tool_node_version: '2'
+        tool_parameters:
+          message:
+            type: mixed
+            value: '{{#1779731470516.result#}}'
+          subject:
+            type: mixed
+            value: 潮汐纪事
+          to:
+            type: mixed
+            value: 你的邮箱@example.com
+        type: tool
+      height: 51
+      id: '17899264254200'
+      position:
+        x: 3184.7728970767416
+        y: 728.0538012669955
+      positionAbsolute:
+        x: 3184.7728970767416
+        y: 728.0538012669955
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The email address of the recipient
+            ja_JP: 宛先の電子メールアドレス
+            pt_BR: O endereço de e-mail do destinatário
+            zh_Hans: 收件人的电子邮件地址
+          label:
+            en_US: To
+            ja_JP: 宛先
+            pt_BR: Para
+            zh_Hans: 收件人
+          llm_description: The email address of the recipient
+          max: null
+          min: null
+          name: to
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The subject of the message
+            ja_JP: 件名
+            pt_BR: O assunto da mensagem
+            zh_Hans: 消息的主题
+          label:
+            en_US: Subject
+            ja_JP: 件名
+            pt_BR: Assunto
+            zh_Hans: 主题
+          llm_description: The subject of the message
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The content of the message
+            ja_JP: メッセージの内容
+            pt_BR: O conteúdo da mensagem
+            zh_Hans: 消息的内容
+          label:
+            en_US: Message
+            ja_JP: メッセージ
+            pt_BR: Mensagem
+            zh_Hans: 消息
+          llm_description: The content of the message
+          max: null
+          min: null
+          name: message
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          message: ''
+          subject: ''
+          to: ''
+        plugin_id: langgenius/outlook
+        plugin_unique_identifier: langgenius/outlook:0.2.3@831f47b22c2e55fc37fec481030b5ddee5e25ed6403141ff3c4009ebd3c29d94
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8abf66a7-b032-48dc-ba9a-6a73758c3da2&filename=26afac8c4c554272513e82c43abe8432731afc1ce646c1bf09ca8af45d85aafc.svg
+        provider_id: langgenius/outlook/outlook
+        provider_name: langgenius/outlook/outlook
+        provider_type: builtin
+        selected: false
+        title: 老杨
+        tool_configurations: {}
+        tool_description: 通过Outlook使用Microsoft Graph API发送消息
+        tool_label: 发送消息
+        tool_name: send_message
+        tool_node_version: '2'
+        tool_parameters:
+          message:
+            type: mixed
+            value: '{{#1779731470516.result#}}'
+          subject:
+            type: mixed
+            value: 潮汐纪事
+          to:
+            type: mixed
+            value: 你的邮箱@example.com
+        type: tool
+      height: 51
+      id: '17899264290900'
+      position:
+        x: 3170
+        y: 796.0538012669955
+      positionAbsolute:
+        x: 3170
+        y: 796.0538012669955
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The email address of the recipient
+            ja_JP: 宛先の電子メールアドレス
+            pt_BR: O endereço de e-mail do destinatário
+            zh_Hans: 收件人的电子邮件地址
+          label:
+            en_US: To
+            ja_JP: 宛先
+            pt_BR: Para
+            zh_Hans: 收件人
+          llm_description: The email address of the recipient
+          max: null
+          min: null
+          name: to
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The subject of the message
+            ja_JP: 件名
+            pt_BR: O assunto da mensagem
+            zh_Hans: 消息的主题
+          label:
+            en_US: Subject
+            ja_JP: 件名
+            pt_BR: Assunto
+            zh_Hans: 主题
+          llm_description: The subject of the message
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The content of the message
+            ja_JP: メッセージの内容
+            pt_BR: O conteúdo da mensagem
+            zh_Hans: 消息的内容
+          label:
+            en_US: Message
+            ja_JP: メッセージ
+            pt_BR: Mensagem
+            zh_Hans: 消息
+          llm_description: The content of the message
+          max: null
+          min: null
+          name: message
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          message: ''
+          subject: ''
+          to: ''
+        plugin_id: langgenius/outlook
+        plugin_unique_identifier: langgenius/outlook:0.2.3@831f47b22c2e55fc37fec481030b5ddee5e25ed6403141ff3c4009ebd3c29d94
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8abf66a7-b032-48dc-ba9a-6a73758c3da2&filename=26afac8c4c554272513e82c43abe8432731afc1ce646c1bf09ca8af45d85aafc.svg
+        provider_id: langgenius/outlook/outlook
+        provider_name: langgenius/outlook/outlook
+        provider_type: builtin
+        selected: false
+        title: 温桑
+        tool_configurations: {}
+        tool_description: 通过Outlook使用Microsoft Graph API发送消息
+        tool_label: 发送消息
+        tool_name: send_message
+        tool_node_version: '2'
+        tool_parameters:
+          message:
+            type: mixed
+            value: '{{#1779731470516.result#}}'
+          subject:
+            type: mixed
+            value: 潮汐纪事
+          to:
+            type: mixed
+            value: 你的邮箱@example.com
+        type: tool
+      height: 51
+      id: '17899264318050'
+      position:
+        x: 3151.7728970767416
+        y: 868.0538012669955
+      positionAbsolute:
+        x: 3151.7728970767416
+        y: 868.0538012669955
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
     viewport:
-      x: 581.451224276098
-      y: 2.218391553746642
-      zoom: 0.842031069639696
+      x: 312.46985538030333
+      y: 52.80086053835208
+      zoom: 0.5743491774985181
   rag_pipeline_variables: []
